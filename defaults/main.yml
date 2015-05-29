@@ -1,2 +1,4 @@
 ---
 # defaults file for gitlab
+
+gitlab_version: 7.11.4

@@ -1,0 +1,19 @@
+---
+# tasks file for gitlab (Ubuntu specific)
+
+- name: Add GitLab APT GPG key
+  apt_key: >
+    url=https://packages.gitlab.com/gpg.key
+    state=present
+  tags: gitlab
+
+- name: Add GitLab APT repository
+  apt_repository: >
+    repo='deb https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/ trusty main'
+    state=present
+  tags: gitlab
+
+- name: Install GitLab packages
+  apt: name={{ item }} state=present update_cache=yes cache_valid_time=3600
+  with_items: gitlab_packages
+  tags: gitlab

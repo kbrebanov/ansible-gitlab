@@ -1,0 +1,5 @@
+---
+# vars file for gitlab (Ubuntu specific)
+
+gitlab_packages:
+  - gitlab-ce={{ gitlab_version }}~omnibus*
